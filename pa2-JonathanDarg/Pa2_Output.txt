@@ -1,0 +1,19 @@
+Fitting 10 folds for each of 32 candidates, totalling 320 fits
+SVM Best CV Score: 0.5130
+KNN Best CV Score: 0.5529
+
+Selected Model: KNN
+
+Best Parameters: {'knn__metric': 'manhattan', 'knn__n_neighbors': 10, 'knn__weights': 'distance', 'pca__n_components': 0.9}
+              precision    recall  f1-score   support
+
+           1       0.78      0.91      0.84      3827
+           2       0.57      0.34      0.43      1018
+           3       0.54      0.30      0.38       512
+
+    accuracy                           0.75      5357
+   macro avg       0.63      0.52      0.55      5357
+weighted avg       0.72      0.75      0.72      5357
+
+
+
