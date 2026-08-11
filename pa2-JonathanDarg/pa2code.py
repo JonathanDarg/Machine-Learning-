@@ -39,16 +39,19 @@ pipe_knn = Pipeline([
 ])
 
 
-# SVM grid (with linear, rbf, and polynomial kernels)
+# Each kernel has only hyperparameters that affect that kernel.  This gives the
+# search at least 20 meaningful SVM configurations without redundant settings.
 svm_param_grid = [
     {'svc__C': [0.01, 0.1, 1, 10], 'pca__n_components': [0.90, 0.95], 'svc__kernel': ['linear']},
     {'svc__C': [0.1, 1, 10], 'svc__gamma': [0.01, 0.1, 1], 'pca__n_components': [0.90, 0.95], 'svc__kernel': ['rbf']},
-    {'svc__C': [0.1, 1], 'svc__gamma': [0.01, 0.1], 'svc__degree': [2, 3], 'pca__n_components': [0.90, 0.95], 'svc__kernel': ['poly']}
+    {'svc__C': [0.1, 1], 'svc__degree': [2, 3], 'pca__n_components': [0.90, 0.95], 'svc__kernel': ['poly']}
 ]
 
-# KNN grid (different neighbors, weights, distance metrics)
+# Odd values reduce binary voting ties; values near 15 are omitted because this
+# multi-class problem can still produce tied vote counts with that neighborhood.
+# The range lets cross-validation select a local versus smoother neighborhood.
 knn_param_grid = {
-    'knn__n_neighbors': [5, 10, 15, 20],
+    'knn__n_neighbors': [3, 5, 7, 9, 11, 21],
     'knn__weights': ['uniform', 'distance'],
     'knn__metric': ['euclidean', 'manhattan'],
     'pca__n_components': [0.90, 0.95]

@@ -16,4 +16,21 @@ Best Parameters: {'knn__metric': 'manhattan', 'knn__n_neighbors': 10, 'knn__weig
 weighted avg       0.72      0.75      0.72      5357
 
 
+Fitting 10 folds for each of 34 candidates, totalling 340 fits
+SVM Best CV Score: 0.5191
+KNN Best CV Score: 0.5547
+
+Selected Model: KNN
+
+Best Parameters: {'knn__metric': 'manhattan', 'knn__n_neighbors': 7, 'knn__weights': 'distance', 'pca__n_components': 0.95}
+              precision    recall  f1-score   support
+
+           1       0.79      0.90      0.84      3827
+           2       0.55      0.39      0.46      1018
+           3       0.51      0.30      0.38       512
+
+    accuracy                           0.75      5357
+   macro avg       0.62      0.53      0.56      5357
+weighted avg       0.72      0.75      0.73      5357
+
 
