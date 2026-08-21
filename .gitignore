@@ -1,5 +1,9 @@
 .venv/
 feedback.md
 
+mnist
+train-images-idx3-ubyte.gz
+train-labels-idx1-ubyte.gz
+
 ./pa2-JonathanDarg/feedback.md
 ./pa3-JonathanDarg/feedback.md
